@@ -10,6 +10,8 @@ const ProjectsSection = React.lazy(() => import("../components/ProjectsSection")
 const ContactSection = React.lazy(() => import("../components/ContactSection").then(module => ({ default: module.ContactSection })));
 const Footer = React.lazy(() => import("../components/Footer").then(module => ({ default: module.Footer })));
 const TestimonialSection = React.lazy(() => import("../components/Testimonial").then(module => ({ default: module.TestimonialSection })));
+const TimelineSection = React.lazy(() => import("../components/TimelineSection"));
+
 
 const Loader = () => (
   <div className="flex items-center justify-center py-20">
@@ -32,6 +34,7 @@ export const Home = () => {
         <AboutSection />
         <Suspense fallback={<Loader />}>
           <SkillsSection />
+          <TimelineSection />
           <ProjectsSection />
           <TestimonialSection />
           <ContactSection />

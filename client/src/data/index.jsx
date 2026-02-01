@@ -321,3 +321,34 @@ export const testimonials = [
     image: "/testimonials/David Wilson.png"
   },
 ];
+
+export const journeyData = [
+  {
+    year: "2024",
+    role: "Senior Frontend Engineer",
+    company: "Tech Solutions Inc.",
+    description: "Leading the frontend team in rebuilding the legacy platform using Next.js and Micro-frontends.",
+    skills: ["Next.js", "Module Federation", "Team Leadership"]
+  },
+  {
+    year: "2023",
+    role: "Full Stack Developer",
+    company: "Creative Agency",
+    description: "Developed and deployed 15+ client websites and web applications. Optimized performance by 40%.",
+    skills: ["React", "Node.js", "AWS", "Framer Motion"]
+  },
+  {
+    year: "2022",
+    role: "Frontend Developer",
+    company: "Startup Hub",
+    description: "Collaborated with UX/UI designers to implement pixel-perfect responsive interfaces.",
+    skills: ["React", "Redux", "SASS", "Firebase"]
+  },
+  {
+    year: "2021",
+    role: "Web Development Intern",
+    company: "Digital Academy",
+    description: "Assisted in building internal tools and learned modern web development practices.",
+    skills: ["HTML/CSS", "JavaScript", "React Basics"]
+  }
+];
