@@ -1,8 +1,9 @@
-import { ArrowRight, ExternalLink, Github, ChevronUp, Star, Code, ChevronDown, MoveRight, Filter, Sparkles, Award, Zap, Play, Eye, Calendar, Users, X } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, ChevronUp, Star, Code, ChevronDown, MoveRight, Filter, Sparkles, Award, Zap, Play, Eye, Calendar, Users, X, Info } from "lucide-react";
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 
 import { projects, categoryColors } from "@/data";
+import { ProjectDetailsModal } from "./ProjectDetailsModal";
 
 export const ProjectsSection = () => {
   const [showAll, setShowAll] = useState(false);
@@ -10,6 +11,7 @@ export const ProjectsSection = () => {
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [hoveredProject, setHoveredProject] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedDeepDiveProject, setSelectedDeepDiveProject] = useState(null);
   const videoRef = useRef(null);
   const sectionRef = useRef(null);
 
@@ -47,6 +49,15 @@ export const ProjectsSection = () => {
     }
   };
 
+  const handleOpenDeepDive = (project) => {
+    console.log("Opening deep dive for:", project.title);
+    setSelectedDeepDiveProject(project);
+  };
+
+  const handleCloseDeepDive = () => {
+    setSelectedDeepDiveProject(null);
+  };
+
   const ProjectHighlights = ({ highlights }) => (
     <div className="space-y-2">
       {highlights.map((highlight, index) => (
@@ -61,7 +72,7 @@ export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="relative min-h-screen py-20 md:py-32 overflow-hidden bg-gradient-to-br from-background via-background to-primary/5"
+      className="relative min-h-screen py-20 md:py-32 bg-gradient-to-br from-background via-background to-primary/5"
       ref={sectionRef}
     >
       {/* Clean Background */}
@@ -202,27 +213,21 @@ export const ProjectsSection = () => {
                         <Play size={20} />
                       </motion.button>
 
-                      {/* Code Button */}
-                      <motion.a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      {/* Deep Dive Button */}
+                      <motion.button
+                        onClick={() => handleOpenDeepDive(project)}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
-                        className={`p-3 rounded-full backdrop-blur-sm border transition-all duration-300 ${project.githubUrl === "#"
-                          ? "bg-gray-500/50 text-gray-300 border-gray-500/30 cursor-not-allowed"
-                          : "bg-white/20 text-white border-white/30 hover:bg-white/30"
-                          }`}
-                        onClick={(e) => project.githubUrl === "#" && e.preventDefault()}
-                        aria-label={`View source code for ${project.title}`}
+                        aria-label={`View details for ${project.title}`}
+                        className="p-3 rounded-full backdrop-blur-sm border bg-white/20 text-white border-white/30 hover:bg-white/30 transition-all duration-300"
                       >
-                        <Code size={20} />
-                      </motion.a>
+                        <Info size={20} />
+                      </motion.button>
                     </motion.div>
                   </div>
 
                   {/* Content Section */}
-                  <div className="p-6 flex-1 flex flex-col">
+                  <div className="p-6 flex-1 flex flex-col relative z-20 bg-background">
                     <div className="flex items-start justify-between mb-3">
                       <h3 className="text-xl font-bold text-foreground">
                         {project.title}
@@ -265,38 +270,50 @@ export const ProjectsSection = () => {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-3 pt-4 border-t border-border">
-                      <motion.a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <div className="flex flex-col gap-3 pt-4 border-t border-border">
+                      <motion.button
+                        onClick={() => handleOpenDeepDive(project)}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className={`flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${project.demoUrl === "#"
-                          ? "bg-muted text-muted-foreground cursor-not-allowed border border-border"
-                          : "bg-primary text-primary-foreground hover:bg-primary/90"
-                          }`}
-                        onClick={(e) => project.demoUrl === "#" && e.preventDefault()}
+                        className="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 relative z-30 cursor-pointer"
                       >
-                        <Eye size={16} />
-                        {project.demoUrl === "#" ? "Coming Soon" : "Live Demo"}
-                      </motion.a>
+                        <Info size={16} />
+                        View Details
+                      </motion.button>
 
-                      <motion.a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className={`inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium border transition-all duration-300 ${project.githubUrl === "#"
-                          ? "bg-muted text-muted-foreground cursor-not-allowed border-border"
-                          : "bg-background text-foreground border-border hover:border-primary hover:bg-primary/5"
-                          }`}
-                        onClick={(e) => project.githubUrl === "#" && e.preventDefault()}
-                      >
-                        <Github size={16} />
-                        Code
-                      </motion.a>
+                      <div className="flex gap-3">
+                        <motion.a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className={`flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium border transition-all duration-300 ${project.demoUrl === "#"
+                            ? "bg-muted text-muted-foreground cursor-not-allowed border-border"
+                            : "bg-background text-foreground border-border hover:border-primary hover:bg-primary/5"
+                            }`}
+                          onClick={(e) => project.demoUrl === "#" && e.preventDefault()}
+                        >
+                          <Eye size={16} />
+                          Demo
+                        </motion.a>
+
+                        <motion.a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className={`flex-1 inline-flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium border transition-all duration-300 ${project.githubUrl === "#"
+                            ? "bg-muted text-muted-foreground cursor-not-allowed border-border"
+                            : "bg-background text-foreground border-border hover:border-primary hover:bg-primary/5"
+                            }`}
+                          onClick={(e) => project.githubUrl === "#" && e.preventDefault()}
+                        >
+                          <Github size={16} />
+                          Code
+                        </motion.a>
+                      </div>
                     </div>
                   </div>
 
@@ -321,7 +338,7 @@ export const ProjectsSection = () => {
               onClick={() => setShowAll(!showAll)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-medium transition-all duration-300 ${showAll
+              className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-medium transition-all duration-300 relative z-30 cursor-pointer ${showAll
                 ? "bg-muted text-foreground border border-border"
                 : "bg-primary text-primary-foreground hover:bg-primary/90"
                 }`}
@@ -487,6 +504,13 @@ export const ProjectsSection = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Deep Dive Modal */}
+      <ProjectDetailsModal
+        project={selectedDeepDiveProject}
+        isOpen={!!selectedDeepDiveProject}
+        onClose={handleCloseDeepDive}
+      />
     </section>
   );
 };

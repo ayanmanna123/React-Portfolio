@@ -64,7 +64,31 @@ export const projects = [
     featured: true,
     accentColor: "from-emerald-500 to-teal-600",
     status: "Live",
-    highlights: ["Image Generation", "Article writer", "Blog Writter", "Resume Reviewer"]
+    highlights: ["Image Generation", "Article writer", "Blog Writter", "Resume Reviewer"],
+    details: {
+      problem: "Content creators and developers spend hours switching between different AI tools for text, code, and image generation, leading to fragmented workflows and productivity loss.",
+      solution: "GenAxis unifies multiple AI capabilities into a single cohesive platform. By integrating Gemini AI, it offers seamless generation of blog posts, code snippets, and images within one interface.",
+      features: [
+        { title: "Multi-Modal Generation", description: "Generate text, code, and images in a single session without context switching." },
+        { title: "Smart History", description: "Auto-saves all generated content with search capabilities for easy retrieval." },
+        { title: "Credit System", description: "Integrated billing system to manage usage limits and premium features." }
+      ],
+      techStack: {
+        Frontend: ["React", "TailwindCSS", "Framer Motion", "Lucide React"],
+        Backend: ["Node.js", "Express", "PostgreSQL", "Prisma"],
+        AI_ML: ["Google Gemini API", "OpenAI DALL-E"],
+        Infrastructure: ["Vercel", "Supabase", "Clerk Auth"]
+      },
+      challenges: [
+        "Optimizing response latency for real-time AI generation.",
+        "Managing concurrent API rate limits securely.",
+        "Implementing a secure and scalable credit-based billing system."
+      ],
+      screenshots: {
+        mobile: ["/projects/project8.png"],
+        desktop: ["/projects/project8.png"]
+      }
+    }
   },
   {
     id: 7,
@@ -79,7 +103,31 @@ export const projects = [
     featured: true,
     accentColor: "from-emerald-500 to-teal-600",
     status: "Live",
-    highlights: ["Multi-role system", "Patient management", "Payment integration"]
+    highlights: ["Multi-role system", "Patient management", "Payment integration"],
+    details: {
+      problem: "Small to medium-sized clinics often struggle with paper-based records or expensive, complex hospital management systems that are difficult to use.",
+      solution: "NauraCare provides a streamlined, affordable digital management system. It handles patient records, appointment scheduling, and billing in an intuitive interface designed for non-technical staff.",
+      features: [
+        { title: "Role-Based Access", description: "Distinct dashboards for Doctors, Admins, and Receptionists." },
+        { title: "Patient Timeline", description: "Visual history of patient visits, prescriptions, and efficiently tracked vitals." },
+        { title: "Automated Billing", description: "Seamless invoicing and payment processing via Stripe." }
+      ],
+      techStack: {
+        Frontend: ["React", "Redux Toolkit", "Material UI"],
+        Backend: ["Node.js", "Express", "MongoDB", "Mongoose"],
+        Security: ["JWT Auth", "Bcrypt", "Helmet"],
+        DevOps: ["Docker", "AWS EC2"]
+      },
+      challenges: [
+        "Designing a database schema that efficiently handles complex patient relationships and medical history.",
+        "Ensuring HIPAA-compliant data security measures.",
+        "Building a real-time appointment booking system with double-booking prevention."
+      ],
+      screenshots: {
+        mobile: ["/projects/project7.png"],
+        desktop: ["/projects/project7.png"]
+      }
+    }
   },
   {
     id: 1,
@@ -94,7 +142,31 @@ export const projects = [
     featured: true,
     accentColor: "from-purple-500 to-indigo-600",
     status: "Live",
-    highlights: ["Product catalog", "Shopping cart", "Payment processing"]
+    highlights: ["Product catalog", "Shopping cart", "Payment processing"],
+    details: {
+      problem: "Users often abandon carts due to slow loading times and complicated checkout processes in traditional e-commerce sites.",
+      solution: "Vante & Co. focuses on speed and simplicity. With Redis caching and a streamlined Stripe integration, it delivers a sub-second shopping experience.",
+      features: [
+        { title: "Smart Filtering", description: "Instant product filtering and searching." },
+        { title: "One-Click Checkout", description: "Integrated Stripe payment flow for rapid transactions." },
+        { title: "Personalized Recommendations", description: "Suggests products based on browsing history." }
+      ],
+      techStack: {
+        Frontend: ["React", "Styled Components", "Redux"],
+        Backend: ["Node.js", "Express", "MongoDB"],
+        Performance: ["Redis Caching", "CDN"],
+        Payments: ["Stripe API"]
+      },
+      challenges: [
+        "Implementing effective caching strategies to keep product data fresh while maximizing performance.",
+        "Handling complex inventory state management during high traffic.",
+        "Ensuring mobile responsiveness for a complex catalog layout."
+      ],
+      screenshots: {
+        mobile: ["/projects/project1.png"],
+        desktop: ["/projects/project1.png"]
+      }
+    }
   },
   {
     id: 2,
@@ -109,7 +181,31 @@ export const projects = [
     featured: true,
     accentColor: "from-blue-500 to-cyan-600",
     status: "Live",
-    highlights: ["Real-time chat", "Media sharing", "User authentication"]
+    highlights: ["Real-time chat", "Media sharing", "User authentication"],
+    details: {
+      problem: "Remote teams need reliable, feature-rich communication tools that don't compromise on privacy or speed.",
+      solution: "Converse Pro leverages WebSockets for instant messaging and WebRTC for peer-to-peer media sharing, ensuring low-latency communication.",
+      features: [
+        { title: "Instant Messaging", description: "Real-time text delivery with read receipts." },
+        { title: "Media Sharing", description: "Secure file transfer using WebRTC." },
+        { title: "Group Channels", description: "Create and manage topic-based chat rooms." }
+      ],
+      techStack: {
+        Frontend: ["React", "Chakra UI"],
+        Backend: ["Node.js", "Socket.IO", "MongoDB"],
+        Realtime: ["WebSockets", "WebRTC"],
+        Auth: ["JWT"]
+      },
+      challenges: [
+        "Scaling WebSocket connections for thousands of concurrent users.",
+        "Managing connection state and reconnection logic gracefully.",
+        "Syncing message history across multiple devices in real-time."
+      ],
+      screenshots: {
+        mobile: ["/projects/project2.png"],
+        desktop: ["/projects/project2.png"]
+      }
+    }
   },
   {
     id: 3,
@@ -123,7 +219,31 @@ export const projects = [
     githubUrl: "https://github.com/Sahilmd01/Blogni",
     accentColor: "from-amber-500 to-orange-600",
     status: "Live",
-    highlights: ["AI content generation", "Multi-language", "User accounts"]
+    highlights: ["AI content generation", "Multi-language", "User accounts"],
+    details: {
+      problem: "Creating high-quality content in multiple languages is time-consuming and expensive for solo bloggers.",
+      solution: "Blogni AI automaties the writing process. Users provide a topic, and the AI generates SEO-optimized articles in selected languages instantly.",
+      features: [
+        { title: "Multilingual Support", description: "Generate content in 10+ languages." },
+        { title: "SEO Optimization", description: "Auto-inserts keywords and meta tags." },
+        { title: "Tone Customization", description: "Adjust writing style from professional to casual." }
+      ],
+      techStack: {
+        Frontend: ["Next.js 14", "TailwindCSS"],
+        Backend: ["Server Actions", "Vercel SDK"],
+        AI: ["Google Gemini Pro"],
+        Database: ["PostgreSQL", "Drizzle ORM"]
+      },
+      challenges: [
+        "Prompt engineering to ensure consistent high-quality output across languages.",
+        "Handling long-running AI requests within serverless function limits.",
+        "Streaming AI responses for a better user experience."
+      ],
+      screenshots: {
+        mobile: ["/projects/project3.png"],
+        desktop: ["/projects/project3.png"]
+      }
+    }
   },
   {
     id: 4,
@@ -137,7 +257,31 @@ export const projects = [
     githubUrl: "https://github.com/Sahilmd01/Spendlix",
     accentColor: "from-rose-500 to-pink-600",
     status: "Live",
-    highlights: ["Expense tracking", "Data visualization", "Budget planning"]
+    highlights: ["Expense tracking", "Data visualization", "Budget planning"],
+    details: {
+      problem: "Managing personal finances is often tedious with spreadsheets or overly complex apps.",
+      solution: "Spendlix offers a visual-first approach to finance. Interactive charts and simple entry methods make tracking expenses engaging and easy.",
+      features: [
+        { title: "Visual Analytics", description: "Interactive breakdown of spending habits." },
+        { title: "Budget Goals", description: "Set and track monthly spending limits." },
+        { title: "Recurring Expenses", description: "Automated tracking for subscriptions and bills." }
+      ],
+      techStack: {
+        Frontend: ["React", "Chart.js", "Mantine UI"],
+        Backend: ["Firebase Functions"],
+        Database: ["Firestore"],
+        Auth: ["Firebase Auth"]
+      },
+      challenges: [
+        "Creating performant data visualizations with large datasets.",
+        "Implementing offline capabilities for on-the-go tracking.",
+        "Ensuring strict data privacy and security for financial data."
+      ],
+      screenshots: {
+        mobile: ["/projects/project4.png"],
+        desktop: ["/projects/project4.png"]
+      }
+    }
   },
   {
     id: 5,
@@ -151,7 +295,31 @@ export const projects = [
     githubUrl: "https://github.com/Sahilmd01/Eattoo-food-delivery-website",
     accentColor: "from-violet-500 to-purple-600",
     status: "Live",
-    highlights: ["Restaurant listings", "Order system", "Location services"]
+    highlights: ["Restaurant listings", "Order system", "Location services"],
+    details: {
+      problem: "Connecting hungry users with local restaurants efficiently requires complex logistics and real-time updates.",
+      solution: "Eattoo streamlines the process with live order tracking and a robust restaurant management portal.",
+      features: [
+        { title: "Live Tracking", description: "Real-time delivery partner location updates." },
+        { title: "Restaurant Portal", description: "Menu management and order acceptance interface." },
+        { title: "Smart Search", description: "Find food by cuisine, rating, or delivery time." }
+      ],
+      techStack: {
+        Frontend: ["React", "Redux", "Mapbox GL"],
+        Backend: ["Node.js", "Express"],
+        Database: ["MongoDB"],
+        Services: ["AWS S3", "Stripe"]
+      },
+      challenges: [
+        "Integrating accurate geolocation services for delivery tracking.",
+        "Managing complex state for multi-item orders and customizations.",
+        "Optimizing image delivery for food menus."
+      ],
+      screenshots: {
+        mobile: ["/projects/project5.png"],
+        desktop: ["/projects/project5.png"]
+      }
+    }
   },
   {
     id: 6,
@@ -165,7 +333,31 @@ export const projects = [
     githubUrl: "#",
     accentColor: "from-orange-500 to-red-600",
     status: "Development",
-    highlights: ["Job matching", "Candidate tracking", "Application system"]
+    highlights: ["Job matching", "Candidate tracking", "Application system"],
+    details: {
+      problem: "Recruiters are overwhelmed by resumes and candidates struggle to find relevant roles.",
+      solution: "JobQue uses AI compatibility matching to surface the best candidates for recruiters and the best jobs for applicants.",
+      features: [
+        { title: "AI Matching", description: "Score-based compatibility ratings." },
+        { title: "Resume Parsing", description: "Auto-extract skills and experience." },
+        { title: "Application Kanban", description: "Drag-and-drop pipeline management." }
+      ],
+      techStack: {
+        Frontend: ["Next.js", "Radix UI"],
+        Backend: ["NestJS", "Python (AI Service)"],
+        Database: ["PostgreSQL", "Redis"],
+        DevOps: ["Kubernetes"]
+      },
+      challenges: [
+        "Developing an accurate matching algorithm.",
+        "Parsing diverse resume formats reliably.",
+        "Building a real-time notification system for application updates."
+      ],
+      screenshots: {
+        mobile: ["/projects/project6.png"],
+        desktop: ["/projects/project6.png"]
+      }
+    }
   }
 ];
 
