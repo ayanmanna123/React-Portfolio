@@ -37,8 +37,8 @@ const StarBackgroundContent = (props) => {
 
 export const StarBackground = () => {
   return (
-    <div className="w-full h-auto fixed inset-0 z-[20]">
-      <Canvas camera={{ position: [0, 0, 1] }}>
+    <div className="w-full h-auto fixed inset-0 z-[20] pointer-events-none">
+      <Canvas camera={{ position: [0, 0, 1] }} events={null} className="!pointer-events-none">
         <Suspense fallback={null}>
           <StarBackgroundContent />
         </Suspense>
